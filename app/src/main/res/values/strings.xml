@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CityDefense</string>
+    <string name="game_name_all_caps">Oblężenie</string>
+    <string name="new_game_btn">Nowa gra</string>
+    <string name="how_to_play_btn">Jak grać?</string>
+    <string name="load_game_btn">Wczytaj</string>
+    <string name="title_activity_new_game">NewGame</string>
+</resources>
