@@ -24,7 +24,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/tvDayOfSiege"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -62,12 +62,11 @@
             app:srcCompat="@drawable/morale" />
 
         <TextView
-            android:id="@+id/textView20"
+            android:id="@+id/tvMorale"
             android:layout_width="0dp"
             android:layout_height="39dp"
             android:layout_weight="2"
             android:gravity="end"
-            android:text="80"
             android:textAllCaps="true"
             android:textStyle="bold" />
 
@@ -112,7 +111,7 @@
             app:srcCompat="@drawable/peasant" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tvPopulationPeasants"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -127,7 +126,7 @@
             app:srcCompat="@drawable/archer" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/tvPopulationArchers"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -141,7 +140,7 @@
             app:srcCompat="@drawable/swordsman" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/tvPopulationInfantry"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -178,7 +177,7 @@
             app:srcCompat="@drawable/walls" />
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/tvStateOfDefenses"
             android:layout_width="0dp"
             android:layout_height="57dp"
             android:layout_weight="2"
@@ -229,7 +228,7 @@
             app:srcCompat="@drawable/food" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/tvFood"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -249,7 +248,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/tvGranarySize"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -275,7 +274,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView23"
+            android:id="@+id/tvRationsSize"
             android:layout_width="0dp"
             android:layout_height="39dp"
             android:layout_weight="1"
@@ -327,19 +326,19 @@
             android:layout_gravity="center_horizontal">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btnCommandPeasants"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Chłopi" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/btnCommandArchers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Łucznicy" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/btnCommandInfantry"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Zbrojni" />
@@ -367,7 +366,7 @@
         android:background="@color/colorPrimaryDark" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnEndTurn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"

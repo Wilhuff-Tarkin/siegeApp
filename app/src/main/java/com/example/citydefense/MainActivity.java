@@ -8,8 +8,8 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnHowToPlay;
     Button btnNewGame;
+    Button btnHowToPlay;
     Button btnLoadGame;
 
 
@@ -18,8 +18,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnHowToPlay = findViewById(R.id.btnHowToPlay);
         btnNewGame = findViewById(R.id.btnNewGame);
+        btnHowToPlay = findViewById(R.id.btnHowToPlay);
         btnLoadGame = findViewById(R.id.btnLoadGame);
 
         btnNewGame.setOnClickListener(new View.OnClickListener() {
