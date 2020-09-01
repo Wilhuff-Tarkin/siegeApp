@@ -24,18 +24,31 @@ public class NewGame extends AppCompatActivity {
     Button btnCommandInfantry;
     Button btnEndTurn;
 
+    //starting values for the players castle
     int dayOfSiege = 1;
-    int morale = 100;
-    int populationPeasants = 50;
-    int populationArchers = 25;
-    int populationInfantry = 25;
+    int morale = 98;
+    int populationPeasants = 20;
+    int populationArchers = 30;
+    int populationInfantry = 50;
     int stateOfDefenses = 100;
     int food = 100;
     int granarySize = 200;
-    int rationsSize = 100;
+    int rationsSize = 82;
+
+    //starting values for the AI
+    int enemyMorale = 100;
+    int enemyPopulation = 500;
+    int enemyFood = 500;
+    int enemyValor = 20;
+
+    //other var
+    int changeInStateOfDefense = 0;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_game);
 
@@ -55,7 +68,6 @@ public class NewGame extends AppCompatActivity {
         btnEndTurn = findViewById(R.id.btnEndTurn);
 
         //initial values setup
-//TODO nie nadaje tych wartosci na layout poki co
 
         tvDayOfSiege.setText(String.valueOf(dayOfSiege));
         tvMorale.setText(String.valueOf(morale));
@@ -67,28 +79,66 @@ public class NewGame extends AppCompatActivity {
         tvGranarySize.setText(String.valueOf(granarySize));
         tvRationsSize.setText(String.valueOf(rationsSize));
 
+//        https://ciekawostkihistoryczne.pl/2019/10/01/trebusze-podstepy-i-tluste-swinie-jak-wygladaly-oblezenia-sredniowiecznych-zamkow/
+
+
         btnEndTurn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //is this the place for the calling actual game mechanics methods?
+                calculateAttack();
+                calculateMorale();
 
-                dayOfSiege++;
-
-                if (morale>0){
-                    morale-=10;
-                }
-
-                if (stateOfDefenses>0){
-                    stateOfDefenses-=10;
-                }
-
-                if (food>0){
-                    food-=(populationPeasants+populationArchers+populationInfantry);
+                if (checkIfSiegeContinues()) {
+                    updateTimeOfSiege();
                 }
 
             }
         });
 
+    }
+
+    private void calculateAttack() {
+
+        changeInStateOfDefense = ((enemyMorale * enemyValor)/enemyPopulation);
+        stateOfDefenses -= changeInStateOfDefense;
+        tvStateOfDefenses.setText(String.valueOf(stateOfDefenses));
+
+
+    }
+
+    private boolean checkIfSiegeContinues() {
+
+       if (morale > 0) {
+           return true;
+       }
+       else
+       {
+           openLostDialogMorale();
+           //todo przejscie do main ?
+           return false;
+       }
+
+    }
+
+    private void openLostDialogMorale() {
+
+        LostDialogMorale lostDialogMorale = new LostDialogMorale();
+        lostDialogMorale.show(getSupportFragmentManager(), "dialog");
+
+
+    }
+
+    private void calculateMorale() {
+
+        morale = Math.round((morale * rationsSize)/100);
+        tvMorale.setText(String.valueOf(morale));
+
+        }
+
+
+    private void updateTimeOfSiege() {
+        dayOfSiege++;
+        tvDayOfSiege.setText(String.valueOf(dayOfSiege));
     }
 }
